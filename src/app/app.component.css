@@ -1,0 +1,21 @@
+.center {
+  text-align: center;
+  padding: 40px;
+}
+img {
+  height: 50px;
+}
+button {
+  height: 60px;
+}
+.search-button, input {
+  height: 40px;
+}
+ul {
+  max-height: 195px;
+  overflow-y: auto;
+  padding-left: 0;
+}
+ul li {
+  list-style-type: none;
+}

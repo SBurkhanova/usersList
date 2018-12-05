@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="center">
+    <h1>GitHub Users List</h1>
+    <div class="input-group">
+      <input [(ngModel)]="name" type="text" class="form-control" id="search" placeholder="Enter a username..." />
+      <button (click)="search(name)" class="btn btn-primary search-button">Search</button>
+    </div>
+   </div>
+  <div>
+    <table class="table table-striped table-bordered">
+      <tr>
+        <th>Name</th>
+        <th>Profile image</th>
+        <th>Username</th>
+        <th>Repositories</th>
+        <th>Starred repositories</th>
+      </tr>
+      <tr *ngFor="let i of data.items">
+        <td>{{ i.login }}</td>
+        <td><img src="{{i.avatar_url}}" /></td>
+        <td>{{ i.login }}</td>
+        <td>
+          <button (click)="repos(i.repos_url, i.login)">Repositories</button>
+          <ul>
+            <li *ngFor="let r of repoData[i.login]">
+              <a href="{{r.html_url}}">{{ r.name }}</a>
+            </li>
+          </ul>
+        </td>
+        <td>
+          <button (click)="starredRepos(i.url, i.login)">
+            Starred repositories
+          </button>
+          <ul>
+            <li *ngFor="let r of starredRepoData[i.login]">
+              <a href="{{r.html_url}}">{{ r.name }}</a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
